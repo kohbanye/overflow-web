@@ -5,19 +5,11 @@
 	import newsList from '$content/news.json'
 </script>
 
-<Section title="News">
+<Section title="NEWS">
 	{#each newsList as news}
-		<div class="card">
-			<Card title={news.title} date={news.date}>
-				{news.content}
-			</Card>
-		</div>
+		<Card title={news.title} date={new Date(news.date)}>
+			{news.content}
+		</Card>
 	{/each}
 	<MoreButton href="/news" />
 </Section>
-
-<style lang="scss">
-	.card {
-		margin-bottom: 1rem;
-	}
-</style>

@@ -13,6 +13,7 @@
     flex-direction: column;
     justify-content: flex-start;
     width: 80%;
+    margin-bottom: 2rem;
   }
 	.title {
 		font-family: 'Fascinate Inline', cursive;

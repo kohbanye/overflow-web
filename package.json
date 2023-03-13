@@ -30,6 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource/fascinate-inline": "^4.5.10"
+		"@fontsource/fascinate-inline": "^4.5.10",
+		"date-fns": "^2.29.3"
 	}
 }

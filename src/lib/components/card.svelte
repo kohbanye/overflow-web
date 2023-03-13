@@ -1,12 +1,19 @@
 <script lang="ts">
+	import { format } from 'date-fns'
+	import ja from 'date-fns/locale/ja'
+
 	export let title: string
-	export let date: string
+	export let date: Date
+	export let dateSize: string = 'small'
+	export let dateFormat: string = 'yyyy/MM/dd'
 </script>
 
 <div class="container">
 	<div class="header">
 		<div class="title">{title}</div>
-		<div class="date">{date}</div>
+		<div class="date" style="font-size: {dateSize};">
+			{format(date, dateFormat, { locale: ja })}
+		</div>
 	</div>
 	<slot />
 </div>
@@ -19,6 +26,7 @@
 		border-radius: 0.25rem;
 		padding: 1rem 2rem;
 		box-shadow: 6px 4px 10px rgba(0, 0, 0, 0.25);
+		margin-bottom: 1rem;
 		cursor: pointer;
 		transition: transform 0.1s ease-in-out;
 		&:hover {
@@ -39,7 +47,6 @@
 		margin-right: 0.5rem;
 	}
 	.date {
-		font-size: small;
 		word-break: keep-all;
 	}
 </style>
