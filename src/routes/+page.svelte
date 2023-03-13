@@ -2,12 +2,14 @@
 	import '@fontsource/fascinate-inline'
 	import News from '$lib/news.svelte'
 	import Live from '$lib/live.svelte'
+	import Discography from '$lib/discography.svelte'
 </script>
 
 <div class="container">
 	<img class="logo" src="logo.png" alt="logo" />
 	<News />
 	<Live />
+	<Discography />
 </div>
 
 <style>
@@ -23,7 +25,7 @@
 	}
 	.logo {
 		width: 75%;
-		max-width: 25rem;
+		max-width: 30rem;
 		margin: 10rem 0;
 	}
 </style>
