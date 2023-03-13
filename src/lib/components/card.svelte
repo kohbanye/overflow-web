@@ -24,7 +24,7 @@
 	.container {
 		background-color: white;
 		border-radius: 0.25rem;
-		padding: 1rem 2rem;
+		padding: 0.75rem 1.5rem;
 		box-shadow: 6px 4px 10px rgba(0, 0, 0, 0.25);
 		margin-bottom: 1rem;
 		cursor: pointer;
