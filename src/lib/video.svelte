@@ -11,7 +11,7 @@
 
 	const animateVideo = (direction: 'left' | 'right') => {
 		if (direction === 'left') {
-			const animationLeft = videoRef.animate(
+			videoRef.animate(
 				[
 					{ transform: 'translateX(0)', opacity: 1 },
 					{ transform: 'translateX(-100%)', opacity: 0 }
@@ -22,11 +22,11 @@
 					easing: 'ease-in'
 				}
 			)
-			animationLeft.onfinish = () => {
+			setTimeout(() => {
 				videoIndex = (videoIndex + 1) % videoList.length
-			}
+			}, 100)
 		} else {
-			const animationRight = videoRef.animate(
+			videoRef.animate(
 				[
 					{ transform: 'translateX(0)', opacity: 1 },
 					{ transform: 'translateX(100%)', opacity: 0 }
@@ -37,9 +37,9 @@
 					easing: 'ease-in'
 				}
 			)
-			animationRight.onfinish = () => {
+			setTimeout(() => {
 				videoIndex = (videoIndex - 1 + videoList.length) % videoList.length
-			}
+			}, 100)
 		}
 	}
 </script>

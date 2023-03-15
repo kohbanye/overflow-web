@@ -8,7 +8,7 @@
 		<div class="container">
 			{#if i % 2 === 0}
 				<a href={discography.url} target="_blank" rel="noreferrer">
-					<img src={`/content/images/${discography.image}`} alt="cover" class="image" />
+					<img src={`${discography.image}`} alt="cover" class="image" />
 				</a>
 				<div class="description even">
 					<div class="label">{discography.label}</div>
@@ -20,7 +20,7 @@
 					<div class="title">{discography.title}</div>
 				</div>
 				<a href={discography.url} target="_blank" rel="noreferrer">
-					<img src={`/content/images/${discography.image}`} alt="cover" class="image" />
+					<img src={`${discography.image}`} alt="cover" class="image" />
 				</a>
 			{/if}
 		</div>
