@@ -5,6 +5,7 @@
 	import Discography from '$lib/discography.svelte'
 	import Video from '$lib/video.svelte'
 	import About from '$lib/about.svelte'
+	import Contact from '$lib/contact.svelte'
 </script>
 
 <div class="container">
@@ -14,6 +15,7 @@
 	<Discography />
 	<Video />
 	<About />
+	<Contact />
 </div>
 
 <style>
