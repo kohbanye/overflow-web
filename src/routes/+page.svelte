@@ -3,6 +3,7 @@
 	import News from '$lib/news.svelte'
 	import Live from '$lib/live.svelte'
 	import Discography from '$lib/discography.svelte'
+	import Video from '$lib/video.svelte'
 </script>
 
 <div class="container">
@@ -10,6 +11,7 @@
 	<News />
 	<Live />
 	<Discography />
+	<Video />
 </div>
 
 <style>
@@ -18,7 +20,10 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		background-image: url('background.jpg');
+		background: linear-gradient(to left, transparent 85%, rgba(0, 0, 0, 0.4)),
+			linear-gradient(to right, transparent 85%, rgba(0, 0, 0, 0.4)),
+			linear-gradient(to top, transparent 90%, rgba(0, 0, 0, 0.4)),
+			linear-gradient(to bottom, transparent 90%, rgba(0, 0, 0, 0.4)), url('background.jpg');
 		background-attachment: fixed;
 		background-size: cover;
 		padding: 3rem 0;
