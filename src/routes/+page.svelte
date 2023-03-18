@@ -6,6 +6,7 @@
 	import Video from '$lib/video.svelte'
 	import About from '$lib/about.svelte'
 	import Contact from '$lib/contact.svelte'
+	import Footer from '$lib/footer.svelte'
 </script>
 
 <div class="container">
@@ -16,6 +17,7 @@
 	<Video />
 	<About />
 	<Contact />
+	<Footer />
 </div>
 
 <style>
@@ -31,11 +33,10 @@
 		background-attachment: fixed;
 		background-size: cover;
 		overflow-x: hidden;
-		padding: 3rem 0;
 	}
 	.logo {
 		width: 75%;
 		max-width: 30rem;
-		margin: 10rem 0;
+		margin: 15rem 0;
 	}
 </style>
