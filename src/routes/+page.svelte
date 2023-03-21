@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '@fontsource/fascinate-inline'
+	import MenuButton from '$lib/components/menu_button.svelte'
 	import News from '$lib/news.svelte'
 	import Live from '$lib/live.svelte'
 	import Discography from '$lib/discography.svelte'
@@ -10,6 +11,7 @@
 </script>
 
 <div class="container">
+	<MenuButton />
 	<img class="logo" src="logo.png" alt="logo" />
 	<News />
 	<Live />
