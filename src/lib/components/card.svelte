@@ -49,4 +49,13 @@
 	.date {
 		word-break: keep-all;
 	}
+
+	@media (max-width: 768px) {
+		.container {
+			padding: 0.5rem 1rem;
+		}
+		.header {
+			margin-bottom: 0;
+		}
+	}
 </style>

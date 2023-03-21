@@ -17,10 +17,12 @@
 
 <style lang="scss">
 	.container {
+		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-		width: 80%;
+		width: 100%;
+		padding: 0 15rem;
 		margin-bottom: 10rem;
 	}
 	.title {
@@ -28,5 +30,16 @@
 		font-size: 3rem;
 		color: white;
 		margin-bottom: 1rem;
+	}
+
+	@media (max-width: 1024px) {
+		.container {
+			padding: 0 5rem;
+		}
+	}
+	@media (max-width: 768px) {
+		.container {
+			padding: 0 2rem;
+		}
 	}
 </style>

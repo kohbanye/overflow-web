@@ -15,7 +15,7 @@
 	.contact {
 		color: white;
 		font-size: x-large;
-		margin-left: 1rem;
+		margin-left: 8rem;
 	}
 	.mail {
 		font-weight: 600;
@@ -28,9 +28,14 @@
 		text-decoration: underline;
 	}
 
-	@media screen and (min-width: 768px) {
+	@media screen and (max-width: 768px) {
 		.contact {
-			margin-left: 8rem;
+			margin-left: 0.5rem;
+		}
+	}
+	@media screen and (max-width: 480px) {
+		.contact {
+			font-size: larger;
 		}
 	}
 </style>

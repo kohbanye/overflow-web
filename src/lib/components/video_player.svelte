@@ -23,10 +23,18 @@
 		justify-content: center;
 		align-items: center;
 	}
+	$video-width: 60vw;
+	$ratio: math.div(9, 16);
 	.video {
-		$video-width: max(60vw, 22.5rem);
-		$ratio: math.div(9, 16);
 		width: $video-width;
 		height: calc($video-width * $ratio);
+	}
+
+	@media (max-width: 768px) {
+		$video-width: 75vw;
+		.video {
+			width: $video-width;
+			height: calc($video-width * $ratio);
+		}
 	}
 </style>

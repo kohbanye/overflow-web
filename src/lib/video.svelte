@@ -65,8 +65,7 @@
 		align-items: center;
 	}
 	.video {
-		//TODO: make this responsive
-		padding: 2rem 4%;
+		padding: 2rem 1.5rem;
 	}
 	.arrow-button {
 		background: none;
@@ -81,5 +80,16 @@
 		width: 5rem;
 		height: 5rem;
 		margin: -1.5rem;
+	}
+
+	@media (max-width: 768px) {
+		.video {
+			padding: 1rem 0;
+		}
+		.icon {
+			width: 3.5rem;
+			height: 3.5rem;
+			margin: -1rem;
+		}
 	}
 </style>

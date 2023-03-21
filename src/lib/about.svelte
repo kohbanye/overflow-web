@@ -14,34 +14,33 @@
 <style lang="scss">
 	.container {
 		display: flex;
-		flex-direction: column;
 		justify-content: center;
-		align-items: center;
+		align-items: flex-start;
 	}
 	.description {
 		font-size: large;
 		color: white;
-		padding: 0.5rem 2rem;
-		margin-bottom: 2rem;
-		max-width: 60rem;
+		white-space: pre-wrap;
+		max-width: 17.5rem;
+		padding: 0.5rem;
+		margin-right: 0.5rem;
 	}
 	.image {
-		width: 100vw;
+		width: 75%;
 	}
 
-	@media screen and (min-width: 1024px) {
+	@media screen and (max-width: 1280px) {
 		.container {
-			flex-direction: row;
-			align-items: flex-start;
+			flex-direction: column;
+			align-items: center;
 		}
 		.description {
-      white-space: pre-wrap;
-			max-width: 17.5rem;
-			padding: 0.5rem;
-			margin-right: 0.5rem;
+			padding: 0;
+			margin-bottom: 2rem;
+			max-width: 60rem;
 		}
 		.image {
-			width: 75%;
+			width: 100vw;
 		}
 	}
 </style>
