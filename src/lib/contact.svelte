@@ -4,7 +4,7 @@
 	const mailAddress = 'overflow0331@gmail.com'
 </script>
 
-<Section title="CONTACT">
+<Section title="contact">
 	<div class="contact">
 		<span class="mail">mail: </span>
 		<a class="link" href="mailto:{mailAddress}"><span class="address">{mailAddress}</span></a>

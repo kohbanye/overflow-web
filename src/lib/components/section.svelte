@@ -3,7 +3,7 @@
 </script>
 
 <div class="container">
-	<div class="title">{title}</div>
+	<div class="title">{title.toUpperCase()}</div>
 	<slot />
 </div>
 

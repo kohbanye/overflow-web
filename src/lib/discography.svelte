@@ -3,7 +3,7 @@
 	import discographyList from '$content/discography.json'
 </script>
 
-<Section title="DISCOGRAPHY">
+<Section title="discography">
 	{#each discographyList as discography, i}
 		<div class="container">
 			{#if i % 2 === 0}

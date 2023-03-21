@@ -44,7 +44,7 @@
 	}
 </script>
 
-<Section title="VIDEO">
+<Section title="video">
 	<div class="container">
 		<button on:click={() => animateVideo('left')} class="arrow-button">
 			<img src={arrowLeft} alt="arrow-left" class="icon" />

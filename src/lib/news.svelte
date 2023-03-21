@@ -5,7 +5,7 @@
 	import newsList from '$content/news.json'
 </script>
 
-<Section title="NEWS">
+<Section title="news">
 	{#each newsList as news}
 		<Card title={news.title} date={new Date(news.date)}>
 			{news.content}
