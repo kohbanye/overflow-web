@@ -2,7 +2,9 @@
 	import Section from '$lib/components/section.svelte'
 	import Card from '$lib/components/card.svelte'
 	import MoreButton from './components/more_button.svelte'
-	import newsList from '$content/news.json'
+	import newsJson from '$content/news.json'
+
+	const newsList = newsJson.slice(0, 3)
 </script>
 
 <Section title="news">

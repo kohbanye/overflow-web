@@ -1,8 +1,10 @@
 <script lang="ts">
 	import Section from '$lib/components/section.svelte'
 	import Card from '$lib/components/card.svelte'
-	import liveList from '$content/live.json'
+	import liveJson from '$content/live.json'
 	import MoreButton from './components/more_button.svelte'
+
+	const liveList = liveJson.slice(0, 3)
 </script>
 
 <Section title="live">
