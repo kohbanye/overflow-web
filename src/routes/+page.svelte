@@ -1,5 +1,7 @@
 <script lang="ts">
 	import '@fontsource/fascinate-inline'
+	import { fade } from 'svelte/transition'
+
 	import MenuButton from '$lib/components/menu_button.svelte'
 	import News from '$lib/news.svelte'
 	import Live from '$lib/live.svelte'
@@ -8,10 +10,17 @@
 	import About from '$lib/about.svelte'
 	import Contact from '$lib/contact.svelte'
 	import Footer from '$lib/footer.svelte'
+	import Navbar from '$lib/components/navbar.svelte'
+
+	let isOpen = false
 </script>
 
 <div class="container">
-	<MenuButton />
+	{#if isOpen}
+		<div transition:fade={{ duration: 400 }} class="overlay" />
+	{/if}
+	<MenuButton bind:isOpen />
+	<Navbar bind:isOpen />
 	<img class="logo" src="logo.png" alt="logo" />
 	<News />
 	<Live />
@@ -22,7 +31,7 @@
 	<Footer />
 </div>
 
-<style>
+<style lang="scss">
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -35,6 +44,15 @@
 		background-attachment: fixed;
 		background-size: cover;
 		overflow-x: hidden;
+	}
+	.overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 1;
 	}
 	.logo {
 		width: 75%;

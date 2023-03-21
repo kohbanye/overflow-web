@@ -43,6 +43,7 @@
 		justify-content: space-around;
 		align-items: center;
 		height: $button-height;
+		z-index: 3;
 		cursor: pointer;
 	}
 	.top,
