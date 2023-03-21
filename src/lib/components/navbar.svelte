@@ -3,10 +3,10 @@
 	import twitter from '$lib/icons/twitter.svg'
 	import youtube from '$lib/icons/youtube.svg'
 	import { scrollPosition } from '../../store'
-
-	export let isOpen = false
+	import { isNavbarOpen } from '../../store'
 
 	const scrollTo = (position: number) => {
+		isNavbarOpen.set(false)
 		window.scrollTo({
 			top: position,
 			behavior: 'smooth'
@@ -14,7 +14,7 @@
 	}
 </script>
 
-<div class="container {isOpen && 'active'}">
+<div class="container {$isNavbarOpen && 'active'}">
 	<div class="section-container">
 		<div class="section"><a class="link" href="/news">NEWS</a></div>
 		<div class="section"><a class="link" href="/live">LIVE</a></div>

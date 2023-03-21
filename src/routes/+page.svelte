@@ -11,16 +11,15 @@
 	import Contact from '$lib/contact.svelte'
 	import Footer from '$lib/footer.svelte'
 	import Navbar from '$lib/components/navbar.svelte'
-
-	let isOpen = false
+	import { isNavbarOpen } from '../store'
 </script>
 
 <div class="container">
-	{#if isOpen}
+	{#if $isNavbarOpen}
 		<div transition:fade={{ duration: 400 }} class="overlay" />
 	{/if}
-	<MenuButton bind:isOpen />
-	<Navbar bind:isOpen />
+	<MenuButton />
+	<Navbar />
 	<img class="logo" src="logo.png" alt="logo" />
 	<News />
 	<Live />

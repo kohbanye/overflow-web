@@ -1,33 +1,20 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte'
-
-	export let isOpen = false
-
-	interface EventTypes {
-		open: void
-		close: void
-	}
-	const dispatch = createEventDispatcher<EventTypes>()
+	import { isNavbarOpen } from '../../store'
 
 	const onClick = () => {
-		isOpen = !isOpen
-		if (isOpen) {
-			dispatch('open')
-		} else {
-			dispatch('close')
-		}
+		isNavbarOpen.update((isOpen) => !isOpen)
 	}
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Escape') {
-			isOpen = false
+			isNavbarOpen.set(false)
 		}
 	}
 </script>
 
 <div on:click={onClick} on:keydown={handleKeyDown} class="button">
-	<span class="top {isOpen && 'active'}" />
-	<span class="center {isOpen && 'active'}" />
-	<span class="bottom {isOpen && 'active'}" />
+	<span class="top {$isNavbarOpen && 'active'}" />
+	<span class="center {$isNavbarOpen && 'active'}" />
+	<span class="bottom {$isNavbarOpen && 'active'}" />
 </div>
 
 <style lang="scss">
@@ -35,9 +22,9 @@
 	$translate: calc($button-height / 3);
 
 	.button {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
+		position: fixed;
+		top: 1rem;
+		right: 1rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
@@ -56,9 +43,9 @@
 		background-color: white;
 		border-radius: 0.15rem;
 	}
-  .active {
-    box-shadow: none;
-  }
+	.active {
+		box-shadow: none;
+	}
 	.top.active {
 		transform: translateY($translate) rotate(45deg);
 	}
