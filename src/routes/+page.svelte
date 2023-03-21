@@ -12,8 +12,15 @@
 	import Footer from '$lib/footer.svelte'
 	import Navbar from '$lib/components/navbar.svelte'
 	import { isNavbarOpen } from '../store'
+
+	const handleKeyDown = (event: KeyboardEvent) => {
+		if (event.key === 'Escape') {
+			isNavbarOpen.set(false)
+		}
+	}
 </script>
 
+<svelte:window on:keydown={handleKeyDown} />
 <div class="container">
 	{#if $isNavbarOpen}
 		<div transition:fade={{ duration: 400 }} class="overlay" />
