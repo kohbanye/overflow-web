@@ -1,0 +1,48 @@
+diff --git a/node_modules/svelte-youtube-embed/Button.svelte b/node_modules/svelte-youtube-embed/Button.svelte
+index 215cbde..1f407a0 100644
+--- a/node_modules/svelte-youtube-embed/Button.svelte
++++ b/node_modules/svelte-youtube-embed/Button.svelte
+@@ -3,7 +3,7 @@
+ </script>
+ 
+ {#if isCustomPlayButton}
+-  <div class="play-button" on:click>
++  <div class="play-button" on:click on:keydown={() => {}}>
+     <slot />
+   </div>
+ {:else}
+diff --git a/node_modules/svelte-youtube-embed/Youtube.svelte b/node_modules/svelte-youtube-embed/Youtube.svelte
+index 28348c6..f219007 100644
+--- a/node_modules/svelte-youtube-embed/Youtube.svelte
++++ b/node_modules/svelte-youtube-embed/Youtube.svelte
+@@ -1,4 +1,5 @@
+ <script>
++	import { onMount } from "svelte"
+   import Button from "./Button.svelte";
+   import Iframe from "./Iframe.svelte";
+   import Image from "./Image.svelte";
+@@ -8,9 +9,12 @@
+ 
+   let videoInfo = {};
+ 
+-  videoInfo = fetch(
+-    `//www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`
+-  ).then((res) => res.json());
++  onMount(async () => {
++    const res = await fetch(
++      `//www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`
++    );
++    videoInfo = await res.json();
++  })
+ 
+   let play = false;
+   const isCustomPlayButton = $$slots.default;
+@@ -26,7 +30,7 @@
+       <Iframe {play} {id} {title} />
+     {:else}
+       <Image {id} {title} {altThumb} {play} />
+-      <div class="b__overlay" on:click={() => (play = true)} />
++      <div class="b__overlay" on:click={() => (play = true)} on:keydown={() => {}} />
+       <div class="v__title"><h3>{title}</h3></div>
+     {/if}
+     {#if !play}
