@@ -1,17 +1,13 @@
 <script lang="ts">
-	export let title = 'Video'
+	import YouTube from 'svelte-youtube-embed'
+
 	export let videoId: string
 </script>
 
 <div class="container">
-	<iframe
-		{title}
-		src={`https://www.youtube.com/embed/${videoId}`}
-		frameborder="0"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-		allowfullscreen
-		class="video"
-	/>
+	<div class="video">
+		<YouTube id={videoId} />
+	</div>
 </div>
 
 <style lang="scss">
