@@ -9,37 +9,38 @@
 	let videoRef: HTMLDivElement
 	let videoIndex = 0
 
+	const animationDuration = 500
 	const animateVideo = (direction: 'left' | 'right') => {
 		if (direction === 'left') {
-			videoRef.animate(
+			const animation = videoRef.animate(
 				[
 					{ transform: 'translateX(0)', opacity: 1 },
 					{ transform: 'translateX(-100%)', opacity: 0 }
 				],
 				{
-					duration: 500,
+					duration: animationDuration,
 					direction: 'alternate',
 					easing: 'ease-in'
 				}
 			)
-			setTimeout(() => {
+			animation.onfinish = () => {
 				videoIndex = (videoIndex + 1) % videoList.length
-			}, 100)
+			}
 		} else {
-			videoRef.animate(
+			const animation = videoRef.animate(
 				[
 					{ transform: 'translateX(0)', opacity: 1 },
 					{ transform: 'translateX(100%)', opacity: 0 }
 				],
 				{
-					duration: 500,
+					duration: animationDuration,
 					direction: 'alternate',
 					easing: 'ease-in'
 				}
 			)
-			setTimeout(() => {
+			animation.onfinish = () => {
 				videoIndex = (videoIndex - 1 + videoList.length) % videoList.length
-			}, 100)
+			}
 		}
 	}
 </script>
@@ -50,7 +51,7 @@
 			<img src={arrowLeft} alt="arrow-left" class="icon" />
 		</button>
 		<div class="video" bind:this={videoRef}>
-			<VideoPlayer title={videoList[videoIndex].title} videoId={videoList[videoIndex].id} />
+			<VideoPlayer id={videoList[videoIndex].id} />
 		</div>
 		<button on:click={() => animateVideo('right')} class="arrow-button">
 			<img src={arrowRight} alt="arrow-right" class="icon" />

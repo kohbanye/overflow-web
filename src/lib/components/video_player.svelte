@@ -1,12 +1,12 @@
 <script lang="ts">
 	import YouTube from 'svelte-youtube-embed'
 
-	export let videoId: string
+	export let id: string
 </script>
 
 <div class="container">
 	<div class="video">
-		<YouTube id={videoId} />
+		<YouTube {id} />
 	</div>
 </div>
 

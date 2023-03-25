@@ -16,6 +16,8 @@
 </div>
 
 <style lang="scss">
+	@use '$styles/variables' as *;
+
 	.container {
 		box-sizing: border-box;
 		display: flex;
@@ -26,7 +28,7 @@
 		margin-bottom: 10rem;
 	}
 	.title {
-		font-family: 'Fascinate Inline', cursive;
+		font-family: $font-section-title;
 		font-size: 3rem;
 		color: white;
 		margin-bottom: 1rem;

@@ -6,11 +6,15 @@
 	export let date: Date
 	export let dateSize: string = 'small'
 	export let dateFormat: string = 'yyyy/MM/dd'
+
+	$: innerWidth = 0
+	$: fixedTitle = innerWidth > 768 ? title : title.slice(0, 50) + '...'
 </script>
 
+<svelte:window bind:innerWidth />
 <div class="container">
 	<div class="header">
-		<div class="title">{title}</div>
+		<div class="title">{fixedTitle}</div>
 		<div class="date" style="font-size: {dateSize};">
 			{format(date, dateFormat, { locale: ja })}
 		</div>

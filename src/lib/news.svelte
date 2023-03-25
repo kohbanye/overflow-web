@@ -5,12 +5,15 @@
 	import newsJson from '$content/news.json'
 
 	const newsList = newsJson.slice(0, 3)
+	const maxContentLength = 200
 </script>
 
 <Section title="news">
 	{#each newsList as news}
 		<Card title={news.title} date={new Date(news.date)}>
-			{news.content}
+			{news.content.length > maxContentLength
+				? news.content.slice(0, maxContentLength) + '...'
+				: news.content}
 		</Card>
 	{/each}
 	<MoreButton href="/news" />

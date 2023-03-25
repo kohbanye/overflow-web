@@ -12,6 +12,11 @@
 	import Footer from '$lib/footer.svelte'
 	import Navbar from '$lib/components/navbar.svelte'
 	import { isNavbarOpen } from '../store'
+	import { beforeNavigate } from '$app/navigation'
+
+	beforeNavigate(() => {
+		isNavbarOpen.set(false)
+	})
 
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Escape') {
