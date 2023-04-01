@@ -60,7 +60,7 @@
 		}
 	}
 	.title {
-		font-size: larger;
+		font-size: x-large;
 		font-weight: 600;
 	}
 

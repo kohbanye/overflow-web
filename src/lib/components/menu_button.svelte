@@ -42,9 +42,11 @@
 		transition: all 0.3s;
 		background-color: white;
 		border-radius: 0.15rem;
+		filter: drop-shadow(0 0 0.25rem rgba(0, 0, 0, 0.8));
 	}
 	.active {
 		box-shadow: none;
+		filter: none;
 	}
 	.top.active {
 		transform: translateY($translate) rotate(45deg);
