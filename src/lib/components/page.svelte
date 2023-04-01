@@ -16,12 +16,16 @@
 	@use '$styles/variables' as *;
 
 	.container {
-		padding: 3rem 5rem;
+		padding: 3rem 6rem;
 	}
 	.link {
 		position: fixed;
 		top: 1.5rem;
 		right: 1.5rem;
+		z-index: 1;
+	}
+	.home {
+		filter: drop-shadow(0 0 0.25rem rgba(0, 0, 0, 0.8));
 	}
 	.title {
 		font-family: $font-section-title;
@@ -32,7 +36,11 @@
 
 	@media (max-width: 600px) {
 		.container {
-			padding: 4rem 2rem;
+			padding: 3rem 2rem;
+		}
+		.link {
+			top: 1rem;
+			right: 1rem;
 		}
 	}
 </style>

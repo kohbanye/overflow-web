@@ -10,7 +10,7 @@
 
 <Section title="live">
 	{#each liveList as live}
-		<Card title={live.title} date={new Date(live.date)} dateSize="large" dateFormat="M月d日 (E)">
+		<Card title={live.title} date={new Date(live.date)} dateSize="medium" dateFormat="M月d日 (E)">
 			{live.description.length > maxDescriptionLength
 				? live.description.slice(0, maxDescriptionLength) + '...'
 				: live.description}
