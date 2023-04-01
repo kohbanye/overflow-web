@@ -6,3 +6,8 @@ export interface ScrollPosition {
 	about: number
 	contact: number
 }
+
+export interface PageCount {
+	news: number
+	live: number
+}

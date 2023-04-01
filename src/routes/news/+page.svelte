@@ -1,35 +1,25 @@
-<script>
-	import '@fontsource/fascinate-inline'
-	import { format } from 'date-fns'
-
+<script lang="ts">
 	import Page from '$lib/components/page.svelte'
-	import NewsList from '$content/news.json'
+	import Card from '$lib/components/card.svelte'
+	import newsJson from '$content/news.json'
+	import { pageCount } from '../../store'
+	import ArrowButton from '$lib/components/arrow_button.svelte'
+	import { writable } from 'svelte/store'
+
+	const maxContentLength = 200
+	const pageLength = 10
+	const pageEnd = Math.floor(newsJson.length / pageLength)
+	$: currentPage = writable<number>($pageCount.news)
+	$: newsList = newsJson.slice($currentPage * pageLength, ($currentPage + 1) * pageLength)
 </script>
 
 <Page title="news">
-	<div class="container">
-		{#each NewsList as news}
-			<div class="news">
-				<div class="date">{format(new Date(news.date), 'yyyy年M月d日')}</div>
-				<div class="title">{news.title}</div>
-				<div class="content">{news.content}</div>
-			</div>
-		{/each}
-	</div>
+	{#each newsList as news}
+		<Card title={news.title} date={new Date(news.date)}>
+			{news.content.length > maxContentLength
+				? news.content.slice(0, maxContentLength) + '...'
+				: news.content}
+		</Card>
+	{/each}
+	<ArrowButton {currentPage} {pageEnd} />
 </Page>
-
-<style lang="scss">
-	.container {
-		padding: 1rem 2rem;
-	}
-	.news {
-		display: flex;
-		flex-direction: column;
-		color: white;
-		margin-bottom: 2rem;
-	}
-	.title {
-		font-size: x-large;
-		font-weight: 600;
-	}
-</style>
