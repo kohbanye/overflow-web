@@ -1,5 +1,4 @@
 <script lang="ts">
-	import '@fontsource/fascinate-inline'
 	import { fade } from 'svelte/transition'
 
 	import MenuButton from '$lib/components/menu_button.svelte'

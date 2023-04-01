@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '@fontsource/fascinate-inline'
 	import { format } from 'date-fns'
 	import { ja } from 'date-fns/locale/index.js'
 
