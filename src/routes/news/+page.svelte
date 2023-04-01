@@ -14,8 +14,12 @@
 </script>
 
 <Page title="news">
-	{#each newsList as news}
-		<Card title={news.title} date={new Date(news.date)}>
+	{#each newsList as news, index}
+		<Card
+			title={news.title}
+			date={new Date(news.date)}
+			href={`/news/${$currentPage * pageLength + index}`}
+		>
 			{news.content.length > maxContentLength
 				? news.content.slice(0, maxContentLength) + '...'
 				: news.content}

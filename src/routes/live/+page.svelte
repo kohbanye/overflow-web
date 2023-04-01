@@ -6,7 +6,7 @@
 	import ArrowButton from '$lib/components/arrow_button.svelte'
 	import { writable } from 'svelte/store'
 
-	const maxContentLength = 200
+	const maxDescriptionLength = 200
 	const pageLength = 10
 	const pageEnd = Math.floor(liveJson.length / pageLength)
 	$: currentPage = writable<number>($pageCount.news)
@@ -14,10 +14,16 @@
 </script>
 
 <Page title="live">
-	{#each liveList as live}
-		<Card title={live.title} date={new Date(live.date)}>
-			{live.description.length > maxContentLength
-				? live.description.slice(0, maxContentLength) + '...'
+	{#each liveList as live, index}
+		<Card
+			title={live.title}
+			date={new Date(live.date)}
+			dateSize="medium"
+			dateFormat="M月d日 (E)"
+			href={`/live/${$currentPage * pageLength + index}`}
+		>
+			{live.description.length > maxDescriptionLength
+				? live.description.slice(0, maxDescriptionLength) + '...'
 				: live.description}
 		</Card>
 	{/each}

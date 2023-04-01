@@ -2,7 +2,7 @@
 	{
 		"title": "The live 1",
 		"date": "2023/1/31",
-		"description": "This is the live description. This is the live description. This is the live description."
+		"description": "This is the live description.\nThis is the live description. This is the live description."
 	},
 	{
 		"title": "The live 2",

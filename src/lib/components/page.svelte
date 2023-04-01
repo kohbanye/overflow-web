@@ -20,8 +20,8 @@
 	}
 	.link {
 		position: fixed;
-		top: 1.5rem;
-		right: 1.5rem;
+		top: 1rem;
+		right: 1rem;
 		z-index: 1;
 	}
 	.home {

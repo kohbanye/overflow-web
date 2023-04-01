@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation'
 	import '@fontsource/fascinate-inline'
 	import { format } from 'date-fns'
 	import { ja } from 'date-fns/locale/index.js'
@@ -7,16 +8,25 @@
 	export let date: Date
 	export let dateSize: string = 'small'
 	export let dateFormat: string = 'yyyy/MM/dd'
+	export let href: string | null = null
+	export let individual: boolean = false
+
+	const handleClick = () => {
+		if (href === null || individual) return
+		goto(href)
+	}
 </script>
 
-<div class="container">
+<div on:click={handleClick} on:keydown={() => {}} class="container {individual && 'individual'}">
 	<div class="header">
 		<div class="title">{title}</div>
 		<div class="date" style="font-size: {dateSize};">
 			{format(date, dateFormat, { locale: ja })}
 		</div>
 	</div>
-	<slot />
+	<div class="content">
+		<slot />
+	</div>
 </div>
 
 <style lang="scss">
@@ -35,10 +45,17 @@
 			transform: translate(1px, 1px);
 		}
 	}
+	.individual {
+		cursor: default;
+		&:hover {
+			background-color: white;
+			transform: none;
+		}
+	}
 	.header {
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		align-items: baseline;
 		word-break: break-all;
 		margin-bottom: 0.5rem;
 	}
@@ -49,6 +66,9 @@
 	}
 	.date {
 		word-break: keep-all;
+	}
+	.content {
+		white-space: pre-wrap;
 	}
 
 	@media (max-width: 768px) {
