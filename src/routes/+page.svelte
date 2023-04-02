@@ -31,7 +31,10 @@
 	{/if}
 	<MenuButton />
 	<Navbar />
-	<img class="logo" src="logo.png" alt="logo" />
+	<div class="background" />
+	<div class="logo">
+		<img class="logo-img" src="logo.png" alt="logo" />
+	</div>
 	<News />
 	<Live />
 	<Discography />
@@ -57,9 +60,70 @@
 		background-color: rgba(0, 0, 0, 0.5);
 		z-index: 1;
 	}
+	.background {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: 1;
+
+		animation-name: bgAppear;
+		animation-duration: 2s;
+	}
 	.logo {
-		width: 75%;
-		max-width: 30rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		z-index: 0;
+	}
+	.logo-img {
+		width: 90%;
+		max-width: 40rem;
 		margin: 15rem 0;
+
+		animation-name: logoAppear, shiver;
+		animation-duration: 2s, 0.25s;
+		animation-delay: 0s, 1.5s;
+		animation-iteration-count: 1, 4;
+		animation-timing-function: ease-in-out, ease-in-out;
+	}
+
+	@keyframes bgAppear {
+		from {
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+		to {
+			background-color: none;
+		}
+	}
+	@keyframes logoAppear {
+		from {
+			opacity: 0;
+			visibility: hidden;
+		}
+		to {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	@keyframes shiver {
+		0%,
+		100% {
+			transform: rotate(0);
+		}
+		20% {
+			transform: rotate(-5deg);
+		}
+		40% {
+			transform: rotate(5deg);
+		}
+		60% {
+			transform: rotate(-5deg);
+		}
+		80% {
+			transform: rotate(5deg);
+		}
 	}
 </style>
