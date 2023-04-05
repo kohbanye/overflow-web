@@ -1,13 +1,12 @@
 <script lang="ts">
 	import Section from '$lib/components/section.svelte'
-
-	const mailAddress = 'overflow0331@gmail.com'
+	import { email } from '$lib/constants'
 </script>
 
 <Section title="contact">
 	<div class="contact">
 		<span class="mail">mail: </span>
-		<a class="link" href="mailto:{mailAddress}"><span class="address">{mailAddress}</span></a>
+		<a class="link" href="mailto:{email}"><span class="address">{email}</span></a>
 	</div>
 </Section>
 

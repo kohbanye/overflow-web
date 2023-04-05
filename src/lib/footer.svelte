@@ -2,16 +2,17 @@
 	import instagram from '$lib/icons/instagram.svg'
 	import twitter from '$lib/icons/twitter.svg'
 	import youtube from '$lib/icons/youtube.svg'
+	import { url } from '$lib/constants'
 </script>
 
 <div class="container">
-	<a href="https://www.instagram.com/overflow_oflo" title="Instagram">
+	<a href={url.instagram} title="Instagram">
 		<img class="icon" src={instagram} alt="instagram" />
 	</a>
-	<a href="https://twitter.com/overflow_oflo" title="Twitter">
+	<a href={url.twitter} title="Twitter">
 		<img class="icon" src={twitter} alt="twitter" />
 	</a>
-	<a href="https://youtube.com/channel/UC0gQm9zulhXobN4BcTqvRjw" title="YouTube">
+	<a href={url.youtube} title="YouTube">
 		<img class="icon" src={youtube} alt="youtube" />
 	</a>
 </div>
