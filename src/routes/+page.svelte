@@ -12,16 +12,22 @@
 	import Navbar from '$lib/components/navbar.svelte'
 	import { isNavbarOpen } from '../store'
 	import { beforeNavigate } from '$app/navigation'
+	import { onMount } from 'svelte'
 
-	beforeNavigate(() => {
-		isNavbarOpen.set(false)
-	})
+	let init = true
 
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Escape') {
 			isNavbarOpen.set(false)
 		}
 	}
+
+	onMount(() => {
+		init = false
+	})
+	beforeNavigate(() => {
+		isNavbarOpen.set(false)
+	})
 </script>
 
 <svelte:window on:keydown={handleKeyDown} />
@@ -29,9 +35,11 @@
 	{#if $isNavbarOpen}
 		<div transition:fade={{ duration: 400 }} class="overlay" />
 	{/if}
+	{#if init}
+		<div transition:fade={{ duration: 600 }} class="overlay" />
+	{/if}
 	<MenuButton />
 	<Navbar />
-	<div class="background" />
 	<div class="logo">
 		<img class="logo-img" src="logo.png" alt="logo" />
 	</div>
@@ -60,17 +68,6 @@
 		background-color: rgba(0, 0, 0, 0.5);
 		z-index: 1;
 	}
-	.background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		z-index: 1;
-
-		animation-name: bgAppear;
-		animation-duration: 2s;
-	}
 	.logo {
 		display: flex;
 		justify-content: center;
@@ -90,14 +87,6 @@
 		animation-timing-function: ease-in-out, ease-in-out;
 	}
 
-	@keyframes bgAppear {
-		from {
-			background-color: rgba(0, 0, 0, 0.5);
-		}
-		to {
-			background-color: none;
-		}
-	}
 	@keyframes logoAppear {
 		from {
 			opacity: 0;
