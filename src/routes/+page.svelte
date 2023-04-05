@@ -16,9 +16,12 @@
 
 	let init = true
 
+	const closeNavbar = () => {
+		isNavbarOpen.set(false)
+	}
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Escape') {
-			isNavbarOpen.set(false)
+			closeNavbar()
 		}
 	}
 
@@ -33,7 +36,7 @@
 <svelte:window on:keydown={handleKeyDown} />
 <div class="container">
 	{#if $isNavbarOpen}
-		<div transition:fade={{ duration: 400 }} class="overlay" />
+		<div on:click={closeNavbar} on:keydown={handleKeyDown} transition:fade={{ duration: 400 }} class="overlay" />
 	{/if}
 	{#if init}
 		<div transition:fade={{ duration: 600 }} class="overlay" />
