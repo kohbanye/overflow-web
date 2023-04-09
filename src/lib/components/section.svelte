@@ -5,11 +5,16 @@
 	export let title: string
 
 	let divRef: HTMLDivElement
-	onMount(() => {
+	const onResize = () => {
 		scrollPosition.set({ ...$scrollPosition, [title]: divRef.offsetTop })
+	}
+	onMount(() => {
+		// offsetTop looks a little off when onMount
+		scrollPosition.set({ ...$scrollPosition, [title]: divRef.offsetTop - 24 })
 	})
 </script>
 
+<svelte:window on:resize={onResize} />
 <div class="container" bind:this={divRef}>
 	<div class="title">{title.toUpperCase()}</div>
 	<slot />

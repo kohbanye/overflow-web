@@ -10,11 +10,9 @@
 	import Contact from '$lib/contact.svelte'
 	import Footer from '$lib/footer.svelte'
 	import Navbar from '$lib/components/navbar.svelte'
-	import { isNavbarOpen } from '../store'
+	import { isNavbarOpen, isInitialLoad } from '../store'
 	import { beforeNavigate } from '$app/navigation'
 	import { onMount } from 'svelte'
-
-	let init = true
 
 	const closeNavbar = () => {
 		isNavbarOpen.set(false)
@@ -25,8 +23,44 @@
 		}
 	}
 
+	let logoImgRef: HTMLImageElement
+	const fadeKeyframes = [
+		{ opacity: 0, visibility: 'hidden' },
+		{ opacity: 1, visibility: 'visible' }
+	]
+	const fadeOptions: KeyframeAnimationOptions = {
+		duration: 2000,
+		fill: 'forwards',
+		easing: 'ease-in-out'
+	}
+	const rotateKeyframes = [
+		{ transform: 'rotate(0deg)' },
+		{ transform: 'rotate(5deg)' },
+		{ transform: 'rotate(-5deg)' },
+		{ transform: 'rotate(5deg)' },
+		{ transform: 'rotate(-5deg)' },
+		{ transform: 'rotate(0deg)' }
+	]
+	const rotateOptions: KeyframeAnimationOptions = {
+		duration: 250,
+		iterations: 4,
+		delay: 1500,
+		fill: 'forwards',
+		easing: 'linear'
+	}
+
 	onMount(() => {
-		init = false
+		if ($isInitialLoad) {
+			window.scrollTo(0, 0)
+
+			document.body.style.overflowY = 'hidden'
+			setTimeout(() => {
+				document.body.style.overflowY = 'auto'
+			}, 2500)
+			logoImgRef.animate(fadeKeyframes, fadeOptions)
+			logoImgRef.animate(rotateKeyframes, rotateOptions)
+		}
+		isInitialLoad.set(false)
 	})
 	beforeNavigate(() => {
 		isNavbarOpen.set(false)
@@ -36,15 +70,26 @@
 <svelte:window on:keydown={handleKeyDown} />
 <div class="container">
 	{#if $isNavbarOpen}
-		<div on:click={closeNavbar} on:keydown={handleKeyDown} transition:fade={{ duration: 400 }} class="overlay" />
+		<div
+			on:click={closeNavbar}
+			on:keydown={handleKeyDown}
+			transition:fade={{ duration: 400 }}
+			class="overlay"
+		/>
 	{/if}
-	{#if init}
-		<div transition:fade={{ duration: 600 }} class="overlay" />
+	{#if $isInitialLoad}
+		<div
+			transition:fade={{
+				duration: 1000,
+				delay: 2500
+			}}
+			class="overlay init"
+		/>
 	{/if}
 	<MenuButton />
 	<Navbar />
 	<div class="logo">
-		<img class="logo-img" src="logo.png" alt="logo" />
+		<img bind:this={logoImgRef} class="logo-img" src="logo.png" alt="logo" />
 	</div>
 	<News />
 	<Live />
@@ -68,8 +113,11 @@
 		left: 0;
 		width: 100vw;
 		height: 100vh;
-		background-color: rgba(0, 0, 0, 0.5);
+		background-color: rgba(black, 0.5);
 		z-index: 1;
+		&.init {
+			z-index: -1;
+		}
 	}
 	.logo {
 		display: flex;
@@ -82,40 +130,5 @@
 		width: 90%;
 		max-width: 40rem;
 		margin: 15rem 0;
-
-		animation-name: logoAppear, shiver;
-		animation-duration: 2s, 0.25s;
-		animation-delay: 0s, 1.5s;
-		animation-iteration-count: 1, 4;
-		animation-timing-function: ease-in-out, ease-in-out;
-	}
-
-	@keyframes logoAppear {
-		from {
-			opacity: 0;
-			visibility: hidden;
-		}
-		to {
-			opacity: 1;
-			visibility: visible;
-		}
-	}
-	@keyframes shiver {
-		0%,
-		100% {
-			transform: rotate(0);
-		}
-		20% {
-			transform: rotate(-5deg);
-		}
-		40% {
-			transform: rotate(5deg);
-		}
-		60% {
-			transform: rotate(-5deg);
-		}
-		80% {
-			transform: rotate(5deg);
-		}
 	}
 </style>
