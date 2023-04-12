@@ -24,7 +24,7 @@
 			{format(date, dateFormat, { locale: ja })}
 		</div>
 	</div>
-	<div class="content">
+	<div style={individual ? 'white-space: pre-wrap;' : ''}>
 		<slot />
 	</div>
 </div>
@@ -66,9 +66,6 @@
 	}
 	.date {
 		word-break: keep-all;
-	}
-	.content {
-		white-space: pre-wrap;
 	}
 
 	@media (max-width: 768px) {
