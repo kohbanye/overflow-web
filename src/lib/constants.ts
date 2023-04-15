@@ -14,4 +14,3 @@ export const url = {
 	twitter: 'https://twitter.com/overflow_oflo',
 	youtube: 'https://youtube.com/channel/UC0gQm9zulhXobN4BcTqvRjw'
 }
-export const releaseDate = new Date('2023-04-22T00:00:00+09:00')
