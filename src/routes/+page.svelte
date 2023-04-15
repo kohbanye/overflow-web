@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition'
+	import { beforeNavigate } from '$app/navigation'
+	import { onMount } from 'svelte'
 
 	import MenuButton from '$lib/components/menu_button.svelte'
 	import News from '$lib/news.svelte'
@@ -11,8 +13,6 @@
 	import Footer from '$lib/footer.svelte'
 	import Navbar from '$lib/components/navbar.svelte'
 	import { isNavbarOpen, isInitialLoad } from '../store'
-	import { beforeNavigate } from '$app/navigation'
-	import { onMount } from 'svelte'
 
 	const closeNavbar = () => {
 		isNavbarOpen.set(false)
