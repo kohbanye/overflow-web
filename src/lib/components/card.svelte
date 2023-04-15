@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation'
-	import '@fontsource/fascinate-inline'
 	import { format } from 'date-fns'
 	import { ja } from 'date-fns/locale/index.js'
 

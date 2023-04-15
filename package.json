@@ -35,6 +35,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/fascinate-inline": "^4.5.10",
+		"@fontsource/noto-sans-jp": "^4.5.12",
 		"date-fns": "^2.29.3"
 	}
 }
