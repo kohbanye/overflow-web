@@ -61,6 +61,7 @@
 			logoImgRef.animate(rotateKeyframes, rotateOptions)
 		}
 		isInitialLoad.set(false)
+		logoImgRef.style.visibility = 'visible'
 	})
 	beforeNavigate(() => {
 		isNavbarOpen.set(false)
@@ -130,5 +131,6 @@
 		width: 90%;
 		max-width: 40rem;
 		margin: 15rem 0;
+		visibility: hidden;
 	}
 </style>
