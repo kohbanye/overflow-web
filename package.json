@@ -36,6 +36,7 @@
 	"dependencies": {
 		"@fontsource/fascinate-inline": "^4.5.10",
 		"@fontsource/noto-sans-jp": "^4.5.12",
+		"@fontsource/roboto-mono": "^4.5.10",
 		"date-fns": "^2.29.3"
 	}
 }

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '@fontsource/roboto-mono'
 	import { format, intervalToDuration } from 'date-fns'
 	import { ja } from 'date-fns/locale/index.js'
 	import { onDestroy } from 'svelte'
@@ -17,8 +18,8 @@
 	})
 	const formatDuration = (duration: Duration) => {
 		return (
-      duration.days?.toString().padStart(2, '0') +
-      ':' +
+			duration.days?.toString().padStart(2, '0') +
+			':' +
 			duration.hours?.toString().padStart(2, '0') +
 			':' +
 			duration.minutes?.toString().padStart(2, '0') +
@@ -70,7 +71,7 @@
 		margin-bottom: 1rem;
 	}
 	.countdown {
-		font-family: monospace;
+		font-family: 'Roboto Mono', monospace;
 		font-size: 5rem;
 		font-weight: 600;
 		text-shadow: 0 0 0.5rem white;
@@ -82,7 +83,7 @@
 			flex-direction: column;
 			gap: 0;
 			font-size: 1.5rem;
-      margin-bottom: 0;
+			margin-bottom: 0;
 		}
 		.countdown {
 			font-size: 3.5rem;
