@@ -18,6 +18,7 @@
 	}
 	.description {
 		font-size: large;
+		font-weight: 600;
 		color: white;
 		white-space: pre-wrap;
 		max-width: 17.5rem;
@@ -28,7 +29,7 @@
 		width: 75%;
 	}
 
-	@media screen and (max-width: 1280px) {
+	@media screen and (max-width: 1320px) {
 		.container {
 			flex-direction: column;
 			align-items: center;
