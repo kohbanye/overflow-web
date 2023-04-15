@@ -3,8 +3,11 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Overflow</title>
-		<meta name="description" content="圧倒的な演奏力を武器に活動する5ピースバンド。その類稀な楽曲の数々は、独自のセンスで生み出された“ Overflow ”のオリジナリティである。" />
-		<link href="%sveltekit.assets%/background.jpg" as="image" rel="preload">
+		<meta
+			name="description"
+			content="圧倒的な演奏力を武器に活動する5ピースバンド。その類稀な楽曲の数々は、独自のセンスで生み出された“ Overflow ”のオリジナリティである。"
+		/>
+		<link href="%sveltekit.assets%/background.jpg" as="image" rel="preload" />
 		<style>
 			body {
 				font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo,
@@ -13,9 +16,9 @@
 					linear-gradient(to right, transparent 85%, rgba(0, 0, 0, 0.4)),
 					linear-gradient(to top, transparent 90%, rgba(0, 0, 0, 0.4)),
 					linear-gradient(to bottom, transparent 90%, rgba(0, 0, 0, 0.4)),
-					url('%sveltekit.assets%/background.jpg');
+					url('%sveltekit.assets%/background.jpg'), #d33e37;
 				background-attachment: fixed;
-				background-size: 110%;
+				background-size: cover;
 				overflow-x: hidden;
 			}
 		</style>
