@@ -6,7 +6,9 @@
 
 <div class="container">
 	<div class="video">
-		<YouTube {id} />
+		{#key id}
+			<YouTube {id} />
+		{/key}
 	</div>
 </div>
 
