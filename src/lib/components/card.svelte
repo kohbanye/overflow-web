@@ -23,7 +23,7 @@
 			{format(date, dateFormat, { locale: ja })}
 		</div>
 	</div>
-	<div style={individual ? 'white-space: pre-wrap;' : ''}>
+	<div class="content {individual && 'indivisual-conntent'}">
 		<slot />
 	</div>
 </div>
@@ -66,6 +66,16 @@
 	.date {
 		word-break: keep-all;
 	}
+	.content {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+	}
+	.indivisual-conntent {
+		white-space: pre-wrap;
+		-webkit-line-clamp: unset;
+	}
 
 	@media (max-width: 768px) {
 		.container {
@@ -77,6 +87,12 @@
 			margin-bottom: 0;
 		}
 		.title {
+			font-size: medium;
+		}
+		.content {
+			font-size: small;
+		}
+		.indivisual-conntent {
 			font-size: medium;
 		}
 	}
