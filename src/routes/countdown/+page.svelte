@@ -45,7 +45,7 @@
 <div class="container">
 	<div class="message">
 		<div>Overflow公式Webサイト</div>
-		<div>{format(releaseDate, 'M月dd日', { locale: ja })} 公開</div>
+		<div>{format(releaseDate, 'M月d日', { locale: ja })} 公開</div>
 	</div>
 	<div class="countdown">
 		{formatDuration(remainingTime)}
