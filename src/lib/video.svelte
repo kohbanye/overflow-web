@@ -2,18 +2,18 @@
 	import arrowLeft from '$lib/icons/arrow-left.svg'
 	import arrowRight from '$lib/icons/arrow-right.svg'
 
-	import videoList from '$content/video.json'
+	import { videos } from '../store'
 	import Section from '$lib/components/section.svelte'
 	import VideoPlayer from './components/video_player.svelte'
 
 	let videoIndex = 0
-	const showArrow = videoList.length > 1
+	const showArrow = $videos.length > 1
 
 	const onClickArrow = (direction: 'left' | 'right') => {
 		if (direction === 'left') {
-			videoIndex = (videoIndex + 1) % videoList.length
+			videoIndex = (videoIndex + 1) % $videos.length
 		} else {
-			videoIndex = (videoIndex - 1 + videoList.length) % videoList.length
+			videoIndex = (videoIndex - 1 + $videos.length) % $videos.length
 		}
 	}
 </script>
@@ -26,7 +26,7 @@
 			</button>
 		{/if}
 		<div class="video">
-			<VideoPlayer id={videoList[videoIndex].id} />
+			<VideoPlayer id={$videos[videoIndex].youtube_id ?? ''} />
 		</div>
 		{#if showArrow}
 			<button on:click={() => onClickArrow('right')} class="arrow-button">

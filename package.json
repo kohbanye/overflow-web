@@ -25,6 +25,7 @@
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
 		"sass": "^1.58.3",
+		"supabase": "^1.83.7",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
 		"svelte-youtube-embed": "^0.1.8",
@@ -37,6 +38,7 @@
 		"@fontsource/fascinate-inline": "^4.5.10",
 		"@fontsource/noto-sans-jp": "^4.5.12",
 		"@fontsource/roboto-mono": "^4.5.10",
+		"@supabase/supabase-js": "^2.32.0",
 		"date-fns": "^2.29.3"
 	}
 }

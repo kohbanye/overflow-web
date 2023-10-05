@@ -1,19 +1,19 @@
 <script lang="ts">
 	import Section from '$lib/components/section.svelte'
-	import discographyList from '$content/discography.json'
+	import { discography } from '../store'
 </script>
 
 <Section title="discography">
-	{#each discographyList as discography, i}
+	{#each $discography as dsg, i}
 		<div class="container">
 			<div class="description {i % 2 == 0 ? 'even' : 'odd'}">
-				<div class="label">{discography.label}</div>
-				<a class="link" href={discography.url} target="_blank" rel="noreferrer">
-					<div class="title">{discography.title}</div>
+				<div class="label">{dsg.label}</div>
+				<a class="link" href={dsg.url} target="_blank" rel="noreferrer">
+					<div class="title">{dsg.title}</div>
 				</a>
 			</div>
-			<a href={discography.url} target="_blank" rel="noreferrer">
-				<img src={`${discography.image}`} alt="cover" class="image" />
+			<a href={dsg.url} target="_blank" rel="noreferrer">
+				<img src={`${dsg.image_url}`} alt="cover" class="image" />
 			</a>
 		</div>
 	{/each}
